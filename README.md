@@ -1,74 +1,79 @@
-# React + TypeScript + Vite
+Daywise — Habit & Todo Tracking SaaS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Daywise is a productivity-focused SaaS application designed to help users build consistent habits and manage daily todos through a calm, minimal interface.
 
-Currently, two official plugins are available:
+This project is built as a real-world frontend architecture exercise, focusing on state management strategy, scalable structure, and product-driven UX decisions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Core Features
 
-## React Compiler
+User authentication (signup & login)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Habit tracking with progress and streaks
 
-## Expanding the ESLint configuration
+Todo management
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Guided onboarding experience
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Responsive, mobile-first UI
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Architecture Overview
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The application intentionally uses multiple state management approaches, each applied where it fits best.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+React Context
+Used for authentication and session state. Lightweight, global, and lifecycle-driven.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Redux Toolkit
+Used for habits and todos. Handles complex, domain-specific state and async data flows.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# daywise
+This separation reflects common production-grade frontend architecture patterns.
+
+Backend & Data
+
+Firebase Authentication for secure user management
+
+Firestore for storing user-scoped habits and todos
+
+Data modeled per user to ensure isolation and scalability
+
+Design Principles
+
+Minimal, distraction-free UI
+
+Clear visual hierarchy
+
+Conversion-focused signup flow
+
+Thoughtful empty states (no blank dashboards)
+
+Tech Stack
+
+React
+
+Tailwind CSS
+
+React Router
+
+React Context API
+
+Redux Toolkit
+
+Firebase (Auth + Firestore)
+
+Netlify
+
+Deployment
+
+Deployed on Netlify with continuous deployment and proper SPA routing configuration.
+
+Purpose
+
+This project is intended to demonstrate:
+
+Frontend system design decisions
+
+Realistic SaaS architecture
+
+State management trade-offs
+
+Clean, maintainable React structure
